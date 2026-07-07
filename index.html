@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html style="background: transparent;">
 <head>
     <meta charset="UTF-8">
     <style>
-        body { 
-            margin: 0; 
-            padding: 0; 
-            background-color: transparent; 
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            background: transparent !important; overflow: hidden; 
+            display: flex; justify-content: center; align-items: center;
         }
         video { 
-            width: 100%; 
-            height: 100%; 
+            width: 100%; aspect-ratio: 16 / 9; object-fit: contain; 
         }
     </style>
 </head>
 <body>
-    <video autoplay loop muted playsinline src="overlayy.webm"></video>
+    <video id="myVideo" autoplay loop muted playsinline src="overlayy.webm"></video>
+    <script>
+        var vid = document.getElementById("myVideo");
+        vid.muted = true;
+        vid.play().catch(function(error) { vid.play(); });
+    </script>
 </body>
 </html>
+
